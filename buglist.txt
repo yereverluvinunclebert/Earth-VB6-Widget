@@ -1,0 +1,84 @@
+' remove the .git folder and all .git files - done
+' rename the vbp and vbw files to pennyred.vbp &c - done
+' replace all global vars with correct prefix - done
+' convert imagelist collection to incorporate only required images - done
+' in code, replace references to saturn, direct replacements - done
+
+' menus - remove references to globe or gauge - done
+' preferences - remove unnecessary controls (greyed out) - done
+' preferences - remove/replace text referring to saturn in the IDE - done
+' replace saturn Prefs with Earth Prefs in caption
+' tooltips remove/replace text referring to saturn in the IDE
+' delete unwanted PNGs and JPGs from folders - done
+' project properties, change project name - done
+' edit the VBP file and change the exe name - done
+' rename the .RES files to earth - done
+' re-attach the .RES file - done
+
+' 48x48 icons on all visible forms - done
+' 128 x 128 icon created assigned to frmTimer and used as the project main icon  - done
+' new about page in photoshop - done
+' new one page help in photoshop - done
+
+' about.txt modified - done
+' help modified, new images and text changed, functionality explained - done
+
+' test on win 10 64bit no existing settings file - study 1st PC - done
+' rename cwGlobe.cls with cwStamp.cls - done
+' change menu links - done
+' change prefs links - done
+
+'                                                                does not like files larger than 25mb (CHMs)
+' update github by hand - done
+' CHM built - done
+' CHM link broken, fix - done
+' test restart after reboot - done
+' build new HTML containing valid links - done
+' create 32x32x16 icon for setup2go
+' create a bitmap for the splash screen used by setup2go  - use the aone-page help PNG converted to a BMP
+' setup2go build new setup.exe - done
+' standard github update - done
+' manual update to github for the 17mb setup.exe - done
+' update things learnt in Cintanotes - done
+
+' update the help - done
+' update the CHM - done
+' build new setup2go - done
+' synch to github - done
+
+' test setup.exe operation on Windows 10 - done
+' test setup.exe operation on Windows 7
+
+' test on win 7 32bit - study 2nd PC - wip
+
+
+' -oOo-
+
+' Tasks yet to do to complete
+' ===========================
+
+' test on win XP 32bit blank install, no RC5 at all
+' test on ReactOS 32bit blank install, no RC5 at all
+
+' document showInTaskbar new option
+' add a debug form and debug commands
+
+' get current monitor? Add code to position the various forms on multiple monitors.
+' DPI awareness code from just Clock widget
+
+' -oOo-
+
+' Tasks yet to do in later versions.
+' ==================================
+
+' upload the code (no setup.exe) to the VBforums codebank
+
+' lightquick - resurrect
+
+' Deviantart for journal only. Test with rocketdock Part III HTML, create the journal blog using NVU as per the saved DA journal pt II, will be usable elsewhere.
+
+' softpedia
+' fosshub
+
+
+
