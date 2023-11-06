@@ -1,7 +1,7 @@
 # Earth-Widget-VB6
 The Steampunk Earth Desktop Widget, written in VB6 for Windows and ReactOS. Created for XP, Vista, Win7, 8, 10/11+, ReactOS as well as Linux or the Apple Mac's OS/X with Wine. This Earth Desktop Widget is an attractive and steamy VB6 widget for your desktop. This VB6 widget provides a simple moveable marble globe complete with rings
 
-
+![earth](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/ef628ebe-30a8-4806-b050-77d2ea5e8ea9)
 
 The others are the 'God of War', the planet Mars, Uranus, Jupiter, Saturn and of course, the Earth. 
 Double-clicking on the planet will cause a personalised Windows application 
@@ -33,13 +33,16 @@ Why VB6? Well, with a 64 bit, modern-language improvement upgrade on the way in 
  windows. Mouse hover over the widget and press CTRL+mousewheel up/down to resize. It works well on Windows XP 
  to Windows 11.
 
+![about](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/38f5891f-50a1-4bfd-ad7e-907584a6021c)
 
  The Earth VB6 widget is Beta-grade software, under development, not yet 
  ready to use on a production system - use at your own risk.
 
  This version was developed on Windows 7 using 32 bit VisualBasic 6 as a FOSS 
- project creating a WoW64 widget for the desktop. 
+ project creating a WoW64 widget for the desktop.
  
+ ![menu01](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/acd5509b-db15-40da-9e58-8565c936b7d1)
+
  It is open source to allow easy configuration, bug-fixing, enhancement and 
  community contribution towards free-and-useful VB6 utilities that can be created
  by anyone. The first step was the creation of this template program to form the 
@@ -47,10 +50,14 @@ Why VB6? Well, with a 64 bit, modern-language improvement upgrade on the way in 
  is new VB6 widgets with more functionality and then hopefully, conversion of 
  each to RADBasic/TwinBasic for future-proofing and 64bit-ness. 
 
+![theWholeShebang](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/66a139b3-d08d-4169-b488-f2bf3dec082c)
 
 
  This utility is one of a set of steampunk and dieselpunk widgets. That you can 
  find here on Deviantart: https://www.deviantart.com/yereverluvinuncleber/gallery
+
+ ![earth-help-750](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/a1a78d66-6c1f-4783-ac78-3fd218389070)
+
  
  I do hope you enjoy using this utility and others. Your own software 
  enhancements and contributions will be gratefully received if you choose to 
@@ -90,6 +97,9 @@ If you are just a casual user of desktop programs then simply download the SETUP
 	Windows 10 Home 64bit on Intel    
 	Windows 10 Home 64bit on AMD    
 	Windows 11 64bit on Intel  
+
+ ![prefs-about](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/cc07cb2b-dbfe-4703-a5b0-7adcb480ac5d)
+
    
  CREDITS:
  
@@ -207,6 +217,9 @@ If you are just a casual user of desktop programs then simply download the SETUP
  original artist using my name or one of my pseudonyms and a link to my site. 
  With regard to the commercial use of incorporated images, permission and a 
  licence would need to be obtained from the original owner and creator, ie. me.
+
+ ![earth-on-desktop](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/275a19bc-a444-4bf5-a602-510f6a18dd4f)
+
  
 ![pennyred-on-desktop](https://github.com/yereverluvinunclebert/Penny-Red-VB6-Widget/assets/2788342/3fae8b74-16b7-4849-9e2e-976ddfc210ed)
 
