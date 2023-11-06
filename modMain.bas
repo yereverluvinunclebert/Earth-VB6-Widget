@@ -474,7 +474,7 @@ Public Sub adjustMainControls()
     ' validate the inputs of any data from the input settings file
     Call validateInputs
     
-    planetWidget.RotationSpeed = Val(gblPlanetSelection)
+    'planetWidget.RotationSpeed = Val(gblPlanetSelection)
     planetWidget.Zoom = Val(gblPlGaugeSize) / 100
     planetWidget.ZoomDirection = gblPlScrollWheelDirection
     
@@ -484,11 +484,11 @@ Public Sub adjustMainControls()
     End If
     
     If gblPlGaugeFunctions = "1" Then
-        planetWidget.Rotating = True
+        ' planetWidget.Rotating = True
         menuForm.mnuSwitchOff.Checked = False
         menuForm.mnuTurnFunctionsOn.Checked = True
     Else
-        planetWidget.Rotating = False
+        ' planetWidget.Rotating = False
         menuForm.mnuSwitchOff.Checked = True
         menuForm.mnuTurnFunctionsOn.Checked = False
     End If

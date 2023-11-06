@@ -1935,7 +1935,7 @@ End Sub
 
 Private Sub chkGaugeFunctions_Click()
     btnSave.Enabled = True ' enable the save button
-    planetWidget.Rotating = chkGaugeFunctions.Value
+    ' planetWidget.Rotating = chkGaugeFunctions.Value
 End Sub
 
 Private Sub chkGenStartup_Click()
