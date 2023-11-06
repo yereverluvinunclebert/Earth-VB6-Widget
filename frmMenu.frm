@@ -449,7 +449,7 @@ Public Sub mnuFacebook_Click()
     On Error GoTo mnuFacebook_Click_Error
     '''If debugflg = 1  Then msgBox "%" & "mnuFacebook_Click"
 
-    answer = MsgBox("Visiting the Facebook chat page - this button opens a browser window and connects to our Facebook chat page. gblPloceed?", vbExclamation + vbYesNo)
+    answer = MsgBox("Visiting the Facebook chat page - this button opens a browser window and connects to our Facebook chat page. Proceed?", vbExclamation + vbYesNo)
     If answer = vbYes Then
         Call ShellExecute(Me.hwnd, "Open", "http://www.facebook.com/profile.php?id=100012278951649", vbNullString, App.Path, 1)
     End If
@@ -479,10 +479,10 @@ Public Sub mnuLatest_Click()
     
     'MsgBox "The download menu option is not yet enabled."
 
-    answer = MsgBox("Download latest version of the program from github - this button opens a browser window and connects to the widget download page where you can check and download the latest SETUP.EXE file). gblPloceed?", vbExclamation + vbYesNo)
+    answer = MsgBox("Download latest version of the program from github - this button opens a browser window and connects to the widget download page where you can check and download the latest SETUP.EXE file). Proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(Me.hwnd, "Open", "https://github.com/yereverluvinunclebert/planet-VB6-Widget/raw/main/Setup.exe", vbNullString, App.Path, 1)
+        Call ShellExecute(Me.hwnd, "Open", "https://github.com/yereverluvinunclebert/Earth-VB6-Widget/raw/main/Setup.exe", vbNullString, App.Path, 1)
     End If
 
 

@@ -3208,7 +3208,7 @@ End Sub
 Private Sub lblGitHub_dblClick()
     Dim answer As VbMsgBoxResult: answer = vbNo
     
-    answer = MsgBox("This option opens a browser window and take you straight to Github. gblPloceed?", vbExclamation + vbYesNo)
+    answer = MsgBox("This option opens a browser window and take you straight to Github. Proceed?", vbExclamation + vbYesNo)
     If answer = vbYes Then
        Call ShellExecute(Me.hwnd, "Open", "https://github.com/yereverluvinunclebert/planet-VB6-Widget", vbNullString, App.Path, 1)
     End If

@@ -1482,10 +1482,10 @@ Public Sub mnuSupport_ClickEvent()
     Dim answer As VbMsgBoxResult: answer = vbNo
     On Error GoTo mnuSupport_ClickEvent_Error
     
-    answer = MsgBox("Visiting the support page - this button opens a browser window and connects to our Github issues page where you can send us a support query. gblPloceed?", vbExclamation + vbYesNo)
+    answer = MsgBox("Visiting the support page - this button opens a browser window and connects to our Github issues page where you can send us a support query. Proceed?", vbExclamation + vbYesNo)
 
     If answer = vbYes Then
-        Call ShellExecute(menuForm.hwnd, "Open", "https://github.com/yereverluvinunclebert/planet-VB6-Widget/issues", vbNullString, App.Path, 1)
+        Call ShellExecute(menuForm.hwnd, "Open", "https://github.com/yereverluvinunclebert/Earth-VB6-Widget/issues", vbNullString, App.Path, 1)
     End If
 
    On Error GoTo 0
