@@ -221,8 +221,5 @@ If you are just a casual user of desktop programs then simply download the SETUP
  ![earth-on-desktop](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/275a19bc-a444-4bf5-a602-510f6a18dd4f)
 
  
-![pennyred-on-desktop](https://github.com/yereverluvinunclebert/Penny-Red-VB6-Widget/assets/2788342/3fae8b74-16b7-4849-9e2e-976ddfc210ed)
-
- 
 
 
