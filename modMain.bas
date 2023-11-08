@@ -341,7 +341,8 @@ Private Sub initialiseGlobalVars()
       
     On Error GoTo initialiseGlobalVars_Error
 
-    softwarePlanet = "Software\Earth"
+    thisPlanet = "\Earth"
+    softwarePlanet = "Software" & thisPlanet
     
     ' general
     gblPlStartup = vbNullString
@@ -736,7 +737,7 @@ Private Sub getToolSettingsFile()
     
     Dim iFileNo As Integer: iFileNo = 0
     
-    gblPlSettingsDir = fSpecialFolder(feUserAppData) & "\planet" ' just for this user alone
+    gblPlSettingsDir = fSpecialFolder(feUserAppData) & thisPlanet ' just for this user alone
     gblPlSettingsFile = gblPlSettingsDir & "\settings.ini"
         
     'if the folder does not exist then create the folder
