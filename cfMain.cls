@@ -46,7 +46,7 @@ Public Sub InitAndShowAsFreeForm(ByVal X As Long, ByVal Y As Long, Optional ByVa
     planetForm.WidgetRoot.BackColor = -1
 
     ' create a new planet widget with a name, location and width, runs Class_Initialize
-    Set planetWidget = planetForm.Widgets.Add(New cwplanet, "planet widget", 0, 0, 1000, 1000)
+    Set planetWidget = planetForm.Widgets.Add(New cwPlanet, "planet widget", 0, 0, 1000, 1000)
         
     ' I do not 'get' the size/position relationship between the form and the widget on the form. Seems peculiar to me.
       
@@ -194,8 +194,8 @@ Private Sub planetForm_MouseUp(Button As Integer, Shift As Integer, X As Single,
        gblPlMaximiseFormX = Str$(planetForm.Left) ' saving in pixels
        gblPlMaximiseFormY = Str$(planetForm.Top)
        
-       sPutINISetting "Software\planet", "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
-       sPutINISetting "Software\planet", "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
+       sPutINISetting softwarePlanet, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
+       sPutINISetting softwarePlanet, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
     End If
     
     'Static x0, y0: If Button Then planetForm.Move planetForm.Left + X - x0, planetForm.Top + Y - y0 Else x0 = X: y0 = Y

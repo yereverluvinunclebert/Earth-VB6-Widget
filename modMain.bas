@@ -251,7 +251,7 @@ Public Sub mainRoutine(ByVal restart As Boolean)
     Call getToolSettingsFile
     
     ' read the dock settings from the new configuration file
-    Call readSettingsFile("Software\planet", gblPlSettingsFile)
+    Call readSettingsFile(softwarePlanet, gblPlSettingsFile)
         
     ' check first usage and display licence screen
     Call checkLicenceState
@@ -318,7 +318,7 @@ Private Sub checkFirstTime()
 
     If gblPlFirstTimeRun = "true" Then
         gblPlFirstTimeRun = "false"
-        sPutINISetting "Software\planet", "firstTimeRun", gblPlFirstTimeRun, gblPlSettingsFile
+        sPutINISetting softwarePlanet, "firstTimeRun", gblPlFirstTimeRun, gblPlSettingsFile
     End If
 
    On Error GoTo 0
@@ -341,6 +341,8 @@ Private Sub initialiseGlobalVars()
       
     On Error GoTo initialiseGlobalVars_Error
 
+    softwarePlanet = "Software\Earth"
+    
     ' general
     gblPlStartup = vbNullString
     gblPlGaugeFunctions = vbNullString
@@ -617,8 +619,8 @@ Public Sub readSettingsFile(ByVal location As String, ByVal gblPlSettingsFile As
         gblPlDefaultEditor = fGetINISetting(location, "defaultEditor", gblPlSettingsFile)
         
         ' other
-        gblPlMaximiseFormX = fGetINISetting("Software\planet", "maximiseFormX", gblPlSettingsFile)
-        gblPlMaximiseFormY = fGetINISetting("Software\planet", "maximiseFormY", gblPlSettingsFile)
+        gblPlMaximiseFormX = fGetINISetting(softwarePlanet, "maximiseFormX", gblPlSettingsFile)
+        gblPlMaximiseFormY = fGetINISetting(softwarePlanet, "maximiseFormY", gblPlSettingsFile)
         gblPlLastSelectedTab = fGetINISetting(location, "lastSelectedTab", gblPlSettingsFile)
         gblPlSkinTheme = fGetINISetting(location, "skinTheme", gblPlSettingsFile)
         
@@ -870,7 +872,7 @@ Private Sub handleUnhideMode(ByVal thisUnhideMode As String)
 
     If thisUnhideMode = "unhide" Then     'parse the command line
         gblPlUnhide = "true"
-        sPutINISetting "Software\planet", "unhide", gblPlUnhide, gblPlSettingsFile
+        sPutINISetting softwarePlanet, "unhide", gblPlUnhide, gblPlSettingsFile
         Call planetForm_Unload
         End
     End If

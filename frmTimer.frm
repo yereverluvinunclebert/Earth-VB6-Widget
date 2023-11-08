@@ -97,7 +97,7 @@ Private Sub revealWidgetTimer_Timer()
         planetWidget.Hidden = False
         revealWidgetTimer.Enabled = False
         gblPlWidgetHidden = "0"
-        sPutINISetting "Software\planet", "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+        sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
     End If
 
     On Error GoTo 0
@@ -163,11 +163,11 @@ Private Sub settingsTimer_Timer()
     
     On Error GoTo settingsTimer_Timer_Error
 
-    gblPlUnhide = fGetINISetting("Software\planet", "unhide", gblPlSettingsFile)
+    gblPlUnhide = fGetINISetting(softwarePlanet, "unhide", gblPlSettingsFile)
 
     If gblPlUnhide = "true" Then
         planetWidget.Hidden = False
-        sPutINISetting "Software\planet", "unhide", vbNullString, gblPlSettingsFile
+        sPutINISetting softwarePlanet, "unhide", vbNullString, gblPlSettingsFile
     End If
 
     On Error GoTo 0

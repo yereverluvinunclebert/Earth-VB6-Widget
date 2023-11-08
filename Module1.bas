@@ -392,9 +392,9 @@ Private Declare Function OpenFile Lib "kernel32" (ByVal lpFileName As String, _
                             lpReOpenBuff As OFSTRUCT, ByVal wStyle As Long) As Long
 Private Declare Function PathFileExists Lib "shlwapi" Alias "PathFileExistsA" (ByVal pszPath As String) As Long
 Private Declare Function PathIsDirectory Lib "shlwapi" Alias "PathIsDirectoryA" (ByVal pszPath As String) As Long
-
 '------------------------------------------------------ ENDS
-                            
+
+Public softwarePlanet As String
      
 '---------------------------------------------------------------------------------------
 ' Procedure : fFExists
@@ -620,7 +620,7 @@ Public Sub checkLicenceState()
     
     ' read the tool's own settings file
     If fFExists(gblPlSettingsFile) Then ' does the tool's own settings.ini exist?
-        slicence = fGetINISetting("Software\planet", "Licence", gblPlSettingsFile)
+        slicence = fGetINISetting(softwarePlanet, "Licence", gblPlSettingsFile)
         ' if the licence state is not already accepted then display the licence form
         If slicence = "0" Then
             Call LoadFileToTB(frmLicence.txtLicenceTextBox, App.Path & "\Resources\txt\licence.txt", False)
@@ -1584,8 +1584,8 @@ Public Sub makeVisibleFormElements()
 
     'NOTE that when you position a widget you are positioning the form it is drawn upon.
 
-    fMain.planetForm.Left = Val(fGetINISetting("Software\planet", "maximiseFormX", gblPlSettingsFile)) ' / screenPixelsPerPixelX
-    fMain.planetForm.Top = Val(fGetINISetting("Software\planet", "maximiseFormY", gblPlSettingsFile)) ' / screenPixelsPerPixelY
+    fMain.planetForm.Left = Val(fGetINISetting(softwarePlanet, "maximiseFormX", gblPlSettingsFile)) ' / screenPixelsPerPixelX
+    fMain.planetForm.Top = Val(fGetINISetting(softwarePlanet, "maximiseFormY", gblPlSettingsFile)) ' / screenPixelsPerPixelY
 
     ' The RC forms are measured in pixels, do remember that...
 
@@ -1854,8 +1854,8 @@ Public Sub planetForm_Unload() ' name follows VB6 standard naming convention
     gblPlMaximiseFormX = Str$(fMain.planetForm.Left) ' saving in pixels
     gblPlMaximiseFormY = Str$(fMain.planetForm.Top)
     
-    sPutINISetting "Software\planet", "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
-    sPutINISetting "Software\planet", "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "maximiseFormX", gblPlMaximiseFormX, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "maximiseFormY", gblPlMaximiseFormY, gblPlSettingsFile
     
     Call unloadAllForms(True)
 
@@ -2008,8 +2008,8 @@ Public Sub readPrefsPosition()
             
    On Error GoTo readPrefsPosition_Error
 
-    gblPlFormXPosTwips = fGetINISetting("Software\planet", "formXPos", gblPlSettingsFile)
-    gblPlFormYPosTwips = fGetINISetting("Software\planet", "formYPos", gblPlSettingsFile)
+    gblPlFormXPosTwips = fGetINISetting(softwarePlanet, "formXPos", gblPlSettingsFile)
+    gblPlFormYPosTwips = fGetINISetting(softwarePlanet, "formYPos", gblPlSettingsFile)
 
     ' if a current location not stored then position to the middle of the screen
     If gblPlFormXPosTwips <> "" Then
@@ -2047,8 +2047,8 @@ Public Sub writePrefsPosition()
         gblPlFormYPosTwips = LTrim$(Str$(planetPrefs.Top))
         
         ' now write those params to the toolSettings.ini
-        sPutINISetting "Software\planet", "formXPos", gblPlFormXPosTwips, gblPlSettingsFile
-        sPutINISetting "Software\planet", "formYPos", gblPlFormYPosTwips, gblPlSettingsFile
+        sPutINISetting softwarePlanet, "formXPos", gblPlFormXPosTwips, gblPlSettingsFile
+        sPutINISetting softwarePlanet, "formYPos", gblPlFormYPosTwips, gblPlSettingsFile
     End If
     
     On Error GoTo 0

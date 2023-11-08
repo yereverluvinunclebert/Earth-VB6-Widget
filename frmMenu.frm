@@ -319,7 +319,7 @@ Private Sub mnuHideWidget_Click()
     frmTimer.revealWidgetTimer.Enabled = True
     gblPlWidgetHidden = "1"
     ' we have to save the value here
-    sPutINISetting "Software\planet", "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "widgetHidden", gblPlWidgetHidden, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -356,7 +356,7 @@ Private Sub mnuLockWidget_Click()
         gblPlPreventDragging = "1"
     End If
 
-    sPutINISetting "Software\planet", "preventDragging", gblPlPreventDragging, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "preventDragging", gblPlPreventDragging, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -582,7 +582,7 @@ Private Sub mnuSwitchOff_Click()
     mnuTurnFunctionsOn.Checked = False
     
     gblPlGaugeFunctions = "0"
-    sPutINISetting "Software\planet", "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
@@ -614,7 +614,7 @@ Private Sub mnuTurnFunctionsOn_Click()
     mnuTurnFunctionsOn.Checked = True
     
     gblPlGaugeFunctions = "1"
-    sPutINISetting "Software\planet", "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "gaugeFunctions", gblPlGaugeFunctions, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub

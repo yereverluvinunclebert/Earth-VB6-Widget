@@ -120,7 +120,7 @@ Private Sub declineLabel_Click()
 
     Call planetForm_Unload
     
-    sPutINISetting "Software\planet", "Licence", slicence, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "Licence", slicence, gblPlSettingsFile
     End
 
    On Error GoTo 0
@@ -154,7 +154,7 @@ Private Sub Label2_Click()
     frmLicence.Hide
     slicence = "1"
     
-    sPutINISetting "Software\planet", "Licence", slicence, gblPlSettingsFile
+    sPutINISetting softwarePlanet, "Licence", slicence, gblPlSettingsFile
 
    On Error GoTo 0
    Exit Sub
