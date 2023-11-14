@@ -343,6 +343,7 @@ Private Sub W_MouseWheel(ByVal MouseKeys As Long, ByVal Rotation As Long, ByVal 
             Zoom = Zoom + 0.02 * LineOffset
         End If
         gblPlGaugeSize = LTrim$(Str$(planetWidget.Zoom * 100)) ' store the value dynamically
+        sPutINISetting softwarePlanet, "gaugeSize", gblPlGaugeSize, gblPlSettingsFile
     End Select
 
    On Error GoTo 0
