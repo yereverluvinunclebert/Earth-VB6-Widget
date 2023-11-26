@@ -14,6 +14,183 @@ Begin VB.Form planetPrefs
    ScaleWidth      =   8970
    StartUpPosition =   3  'Windows Default
    Visible         =   0   'False
+   Begin VB.Frame fraConfig 
+      Caption         =   "Configuration"
+      Height          =   4785
+      Left            =   240
+      TabIndex        =   8
+      Top             =   1200
+      Width           =   7140
+      Begin VB.Frame fraConfigInner 
+         BorderStyle     =   0  'None
+         Height          =   4215
+         Left            =   435
+         TabIndex        =   34
+         Top             =   435
+         Width           =   6450
+         Begin VB.CheckBox chkShowTaskbar 
+            Caption         =   "Show Widget in Taskbar"
+            Height          =   225
+            Left            =   2010
+            TabIndex        =   144
+            ToolTipText     =   "Check the box to show the widget in the taskbar"
+            Top             =   3735
+            Width           =   3405
+         End
+         Begin VB.ComboBox cmbScrollWheelDirection 
+            Height          =   315
+            ItemData        =   "frmPrefs.frx":25CA
+            Left            =   1995
+            List            =   "frmPrefs.frx":25CC
+            Style           =   2  'Dropdown List
+            TabIndex        =   90
+            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
+            Top             =   1695
+            Width           =   2490
+         End
+         Begin VB.Frame fraAllowShutdowns 
+            BorderStyle     =   0  'None
+            Height          =   1245
+            Left            =   1425
+            TabIndex        =   40
+            Top             =   5370
+            Width           =   4575
+            Begin VB.Label lblConfigurationTab 
+               Height          =   660
+               Index           =   8
+               Left            =   270
+               TabIndex        =   41
+               Top             =   525
+               Width           =   3720
+            End
+         End
+         Begin VB.CheckBox chkEnableBalloonTooltips 
+            Caption         =   "Enable Balloon Tooltips on all Controls *"
+            Height          =   225
+            Left            =   2010
+            TabIndex        =   39
+            ToolTipText     =   "Check the box to enable larger balloon tooltips for all controls on the main program"
+            Top             =   3345
+            Width           =   3405
+         End
+         Begin VB.CheckBox chkEnableTooltips 
+            Caption         =   "Enable Tooltips on all Controls"
+            Height          =   225
+            Left            =   2010
+            TabIndex        =   35
+            ToolTipText     =   "Check the box to enable tooltips for all controls on the main program"
+            Top             =   2910
+            Width           =   3345
+         End
+         Begin vb6projectCCRSlider.Slider sliGaugeSize 
+            Height          =   390
+            Left            =   1920
+            TabIndex        =   98
+            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
+            Top             =   60
+            Width           =   3870
+            _ExtentX        =   6826
+            _ExtentY        =   688
+            Min             =   5
+            Max             =   220
+            Value           =   100
+            TickFrequency   =   6
+            SelStart        =   20
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "The scroll-wheel resizing direction can be determined here. The direction chosen causes the image to grow. *"
+            Height          =   660
+            Index           =   6
+            Left            =   2025
+            TabIndex        =   123
+            Top             =   2145
+            Width           =   3930
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "180"
+            Height          =   315
+            Index           =   4
+            Left            =   4770
+            TabIndex        =   94
+            Top             =   555
+            Width           =   345
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "130"
+            Height          =   315
+            Index           =   3
+            Left            =   3990
+            TabIndex        =   93
+            Top             =   555
+            Width           =   345
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "50"
+            Height          =   315
+            Index           =   1
+            Left            =   2730
+            TabIndex        =   92
+            Top             =   555
+            Width           =   345
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "Mouse Wheel Resize :"
+            Height          =   345
+            Index           =   3
+            Left            =   255
+            TabIndex        =   91
+            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
+            Top             =   1740
+            Width           =   2055
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel. Immediate. *"
+            Height          =   555
+            Index           =   2
+            Left            =   2070
+            TabIndex        =   89
+            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
+            Top             =   870
+            Width           =   3810
+         End
+         Begin VB.Label lblConfiguration 
+            Caption         =   "Gauge Size :"
+            Height          =   315
+            Index           =   1
+            Left            =   885
+            TabIndex        =   88
+            Top             =   105
+            Width           =   975
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "90"
+            Height          =   315
+            Index           =   2
+            Left            =   3345
+            TabIndex        =   87
+            Top             =   555
+            Width           =   840
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "220 (%)"
+            Height          =   315
+            Index           =   5
+            Left            =   5385
+            TabIndex        =   86
+            Top             =   555
+            Width           =   735
+         End
+         Begin VB.Label lblGaugeSize 
+            Caption         =   "5"
+            Height          =   315
+            Index           =   0
+            Left            =   1980
+            TabIndex        =   85
+            Top             =   555
+            Width           =   345
+         End
+      End
+   End
    Begin VB.Frame fraPosition 
       Caption         =   "Position"
       Height          =   7440
@@ -71,9 +248,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbWidgetLandscape 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25CA
+            ItemData        =   "frmPrefs.frx":25CE
             Left            =   2250
-            List            =   "frmPrefs.frx":25CC
+            List            =   "frmPrefs.frx":25D0
             Style           =   2  'Dropdown List
             TabIndex        =   75
             ToolTipText     =   "Choose the alarm sound."
@@ -82,9 +259,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbWidgetPortrait 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25CE
+            ItemData        =   "frmPrefs.frx":25D2
             Left            =   2250
-            List            =   "frmPrefs.frx":25D0
+            List            =   "frmPrefs.frx":25D4
             Style           =   2  'Dropdown List
             TabIndex        =   72
             ToolTipText     =   "Choose the alarm sound."
@@ -93,9 +270,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbWidgetPosition 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25D2
+            ItemData        =   "frmPrefs.frx":25D6
             Left            =   2265
-            List            =   "frmPrefs.frx":25D4
+            List            =   "frmPrefs.frx":25D8
             Style           =   2  'Dropdown List
             TabIndex        =   69
             ToolTipText     =   "Choose the alarm sound."
@@ -104,9 +281,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbAspectHidden 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":25D6
+            ItemData        =   "frmPrefs.frx":25DA
             Left            =   2265
-            List            =   "frmPrefs.frx":25D8
+            List            =   "frmPrefs.frx":25DC
             Style           =   2  'Dropdown List
             TabIndex        =   66
             ToolTipText     =   "Choose the alarm sound."
@@ -192,7 +369,7 @@ Begin VB.Form planetPrefs
             Width           =   2205
          End
          Begin VB.Label lblPosition 
-            Caption         =   $"frmPrefs.frx":25DA
+            Caption         =   $"frmPrefs.frx":25DE
             Height          =   3120
             Index           =   12
             Left            =   5145
@@ -212,7 +389,7 @@ Begin VB.Form planetPrefs
             Width           =   2040
          End
          Begin VB.Label lblPosition 
-            Caption         =   $"frmPrefs.frx":27AC
+            Caption         =   $"frmPrefs.frx":27B0
             Height          =   705
             Index           =   10
             Left            =   2250
@@ -232,13 +409,13 @@ Begin VB.Form planetPrefs
             Width           =   2355
          End
          Begin VB.Label lblPosition 
-            Caption         =   $"frmPrefs.frx":284B
+            Caption         =   $"frmPrefs.frx":284F
             Height          =   3045
             Index           =   6
             Left            =   2265
             TabIndex        =   68
             Tag             =   "lblAlarmSoundDesc"
-            ToolTipText     =   $"frmPrefs.frx":29E7
+            ToolTipText     =   $"frmPrefs.frx":29EB
             Top             =   450
             Width           =   5175
          End
@@ -291,12 +468,12 @@ Begin VB.Form planetPrefs
                Left            =   1440
                TabIndex        =   139
                Text            =   " eg. E:\vb6\fire call\FireCallWin.vbp"
-               ToolTipText     =   $"frmPrefs.frx":2B8C
+               ToolTipText     =   $"frmPrefs.frx":2B90
                Top             =   195
                Width           =   3660
             End
             Begin VB.Label lblDebug 
-               Caption         =   $"frmPrefs.frx":2C1E
+               Caption         =   $"frmPrefs.frx":2C22
                Height          =   930
                Index           =   9
                Left            =   1545
@@ -315,7 +492,7 @@ Begin VB.Form planetPrefs
                Width           =   1350
             End
             Begin VB.Label lblGitHub 
-               Caption         =   $"frmPrefs.frx":2CC2
+               Caption         =   $"frmPrefs.frx":2CC6
                ForeColor       =   &H8000000D&
                Height          =   885
                Left            =   1530
@@ -353,9 +530,9 @@ Begin VB.Form planetPrefs
          End
          Begin VB.ComboBox cmbDebug 
             Height          =   315
-            ItemData        =   "frmPrefs.frx":2D55
+            ItemData        =   "frmPrefs.frx":2D59
             Left            =   1530
-            List            =   "frmPrefs.frx":2D57
+            List            =   "frmPrefs.frx":2D5B
             Style           =   2  'Dropdown List
             TabIndex        =   56
             ToolTipText     =   "Choose to set debug mode."
@@ -448,7 +625,7 @@ Begin VB.Form planetPrefs
          MultiLine       =   -1  'True
          ScrollBars      =   2  'Vertical
          TabIndex        =   117
-         Text            =   "frmPrefs.frx":2D59
+         Text            =   "frmPrefs.frx":2D5D
          Top             =   2205
          Width           =   8010
       End
@@ -865,7 +1042,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgSounds 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":3D10
+         Picture         =   "frmPrefs.frx":3D14
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -873,7 +1050,7 @@ Begin VB.Form planetPrefs
       Begin VB.Image imgSoundsClicked 
          Height          =   600
          Left            =   160
-         Picture         =   "frmPrefs.frx":42CF
+         Picture         =   "frmPrefs.frx":42D3
          Stretch         =   -1  'True
          Top             =   225
          Width           =   600
@@ -926,7 +1103,7 @@ Begin VB.Form planetPrefs
                Width           =   720
             End
             Begin VB.Label lblWindowLevel 
-               Caption         =   $"frmPrefs.frx":470E
+               Caption         =   $"frmPrefs.frx":4712
                Height          =   975
                Index           =   1
                Left            =   855
@@ -940,7 +1117,7 @@ Begin VB.Form planetPrefs
             Left            =   1305
             Style           =   2  'Dropdown List
             TabIndex        =   17
-            ToolTipText     =   $"frmPrefs.frx":47B1
+            ToolTipText     =   $"frmPrefs.frx":47B5
             Top             =   0
             Width           =   3720
          End
@@ -1110,7 +1287,7 @@ Begin VB.Form planetPrefs
             Width           =   4035
          End
          Begin VB.Label lblFontsTab 
-            Caption         =   $"frmPrefs.frx":483E
+            Caption         =   $"frmPrefs.frx":4842
             Height          =   900
             Index           =   0
             Left            =   1665
@@ -1159,183 +1336,6 @@ Begin VB.Form planetPrefs
             ToolTipText     =   "We suggest Centurion Light SF at 8pt - which you will find in the FCW program folder"
             Top             =   480
             Width           =   4035
-         End
-      End
-   End
-   Begin VB.Frame fraConfig 
-      Caption         =   "Configuration"
-      Height          =   4785
-      Left            =   240
-      TabIndex        =   8
-      Top             =   1200
-      Width           =   7140
-      Begin VB.Frame fraConfigInner 
-         BorderStyle     =   0  'None
-         Height          =   4215
-         Left            =   435
-         TabIndex        =   34
-         Top             =   435
-         Width           =   6450
-         Begin VB.CheckBox chkShowTaskbar 
-            Caption         =   "Show Widget in Taskbar"
-            Height          =   225
-            Left            =   2010
-            TabIndex        =   144
-            ToolTipText     =   "Check the box to show the widget in the taskbar"
-            Top             =   3735
-            Width           =   3405
-         End
-         Begin VB.ComboBox cmbScrollWheelDirection 
-            Height          =   315
-            ItemData        =   "frmPrefs.frx":48F9
-            Left            =   1995
-            List            =   "frmPrefs.frx":48FB
-            Style           =   2  'Dropdown List
-            TabIndex        =   90
-            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
-            Top             =   1695
-            Width           =   2490
-         End
-         Begin VB.Frame fraAllowShutdowns 
-            BorderStyle     =   0  'None
-            Height          =   1245
-            Left            =   1425
-            TabIndex        =   40
-            Top             =   5370
-            Width           =   4575
-            Begin VB.Label lblConfigurationTab 
-               Height          =   660
-               Index           =   8
-               Left            =   270
-               TabIndex        =   41
-               Top             =   525
-               Width           =   3720
-            End
-         End
-         Begin VB.CheckBox chkEnableBalloonTooltips 
-            Caption         =   "Enable Balloon Tooltips on all Controls *"
-            Height          =   225
-            Left            =   2010
-            TabIndex        =   39
-            ToolTipText     =   "Check the box to enable larger balloon tooltips for all controls on the main program"
-            Top             =   3345
-            Width           =   3405
-         End
-         Begin VB.CheckBox chkEnableTooltips 
-            Caption         =   "Enable Tooltips on all Controls"
-            Height          =   225
-            Left            =   2010
-            TabIndex        =   35
-            ToolTipText     =   "Check the box to enable tooltips for all controls on the main program"
-            Top             =   2910
-            Width           =   3345
-         End
-         Begin vb6projectCCRSlider.Slider sliGaugeSize 
-            Height          =   390
-            Left            =   1920
-            TabIndex        =   98
-            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
-            Top             =   60
-            Width           =   3870
-            _ExtentX        =   6826
-            _ExtentY        =   688
-            Min             =   5
-            Max             =   220
-            Value           =   100
-            TickFrequency   =   6
-            SelStart        =   20
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "The scroll-wheel resizing direction can be determined here. The direction chosen causes the image to grow. *"
-            Height          =   660
-            Index           =   6
-            Left            =   2025
-            TabIndex        =   123
-            Top             =   2145
-            Width           =   3930
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "180"
-            Height          =   315
-            Index           =   4
-            Left            =   4770
-            TabIndex        =   94
-            Top             =   555
-            Width           =   345
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "130"
-            Height          =   315
-            Index           =   3
-            Left            =   3990
-            TabIndex        =   93
-            Top             =   555
-            Width           =   345
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "50"
-            Height          =   315
-            Index           =   1
-            Left            =   2730
-            TabIndex        =   92
-            Top             =   555
-            Width           =   345
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "Mouse Wheel Resize :"
-            Height          =   345
-            Index           =   3
-            Left            =   255
-            TabIndex        =   91
-            ToolTipText     =   "To change the direction of the mouse scroll wheel when resiziing the globe gauge."
-            Top             =   1740
-            Width           =   2055
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel. Immediate. *"
-            Height          =   555
-            Index           =   2
-            Left            =   2070
-            TabIndex        =   89
-            ToolTipText     =   "Adjust to a percentage of the original size. You can also use Ctrl+Mousewheel."
-            Top             =   870
-            Width           =   3810
-         End
-         Begin VB.Label lblConfiguration 
-            Caption         =   "Gauge Size :"
-            Height          =   315
-            Index           =   1
-            Left            =   885
-            TabIndex        =   88
-            Top             =   105
-            Width           =   975
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "90"
-            Height          =   315
-            Index           =   2
-            Left            =   3345
-            TabIndex        =   87
-            Top             =   555
-            Width           =   840
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "220 (%)"
-            Height          =   315
-            Index           =   5
-            Left            =   5385
-            TabIndex        =   86
-            Top             =   555
-            Width           =   735
-         End
-         Begin VB.Label lblGaugeSize 
-            Caption         =   "5"
-            Height          =   315
-            Index           =   0
-            Left            =   1980
-            TabIndex        =   85
-            Top             =   555
-            Width           =   345
          End
       End
    End
@@ -1706,6 +1706,7 @@ Private lastFormHeight As Long
 Private Const cFormHeight As Long = 11055
 Private Const cFormWidth  As Long = 9090
 Private topIconWidth As Long
+Private gblAllowSizeChangeFlg As Boolean
 
 
 
@@ -3301,11 +3302,33 @@ End Sub
 Private Sub imgWindow_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Call picButtonMouseUpEvent("window", imgWindow, imgWindowClicked, fraWindow, fraWindowButton)
 End Sub
+Private Sub sliGaugeSize_GotFocus()
+    gblAllowSizeChangeFlg = True
+End Sub
 
+Private Sub sliGaugeSize_LostFocus()
+    gblAllowSizeChangeFlg = False
+End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : sliGaugeSize_Change
+' Author    : beededea
+' Date      : 26/11/2023
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
 Private Sub sliGaugeSize_Change()
+    On Error GoTo sliGaugeSize_Change_Error
+
     btnSave.Enabled = True ' enable the save button
-    planetWidget.Zoom = sliGaugeSize.Value / 100
+    If gblAllowSizeChangeFlg = True Then planetWidget.Zoom = sliGaugeSize.Value / 100
+
+    On Error GoTo 0
+    Exit Sub
+
+sliGaugeSize_Change_Error:
+
+     MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure sliGaugeSize_Change of Form planetPrefs"
 End Sub
 
 Private Sub sliOpacity_Change()
