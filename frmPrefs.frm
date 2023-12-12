@@ -1785,6 +1785,9 @@ Private Sub Form_Load()
     'load the about text
     Call loadPrefsAboutText
     
+    ' load the preference icons from a previously populated CC imageList
+    Call loadHigherResPrefsImages
+    
     positionTimer.Enabled = True
 
     On Error GoTo 0
@@ -2990,8 +2993,6 @@ Private Sub Form_Resize()
     If dynamicSizingFlg = True Then
         Me.Width = Me.Height / ratio ' maintain the aspect ratio
         Call resizeControls
-        
-        Call loadHigherResImages
     Else
         If Me.WindowState = 0 Then
             If Me.Width > 9090 Then Me.Width = 9090
@@ -3999,14 +4000,14 @@ Private Sub setThemeShade(ByVal redC As Integer, ByVal greenC As Integer, ByVal 
         planetPrefs.mnuLight.Checked = False
         planetPrefs.mnuDark.Checked = True
         
-        Call setIconImagesDark
+        Call setPrefsIconImagesDark
         
     Else
         'classicTheme = False
         planetPrefs.mnuLight.Checked = True
         planetPrefs.mnuDark.Checked = False
         
-        Call setIconImagesLight
+        Call setPrefsIconImagesLight
                 
     End If
     
@@ -4254,60 +4255,30 @@ ResizeControls_Error:
 End Sub
 
 '---------------------------------------------------------------------------------------
-' Procedure : loadHigherResImages
+' Procedure : loadHigherResPrefsImages
 ' Author    : beededea
 ' Date      : 18/06/2023
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub loadHigherResImages()
-    Dim ratio As Double: ratio = 0
-    Dim resourcePath As String: resourcePath = vbNullString
-    
-    On Error GoTo loadHigherResImages_Error
-   
-    resourcePath = App.Path & "\resources\images"
-   
-    If WindowState = vbMinimized Then Exit Sub
-    
-    'ratio = cFormHeight / cFormWidth
+Private Sub loadHigherResPrefsImages()
 
-    If dynamicSizingFlg = False Then
-        Exit Sub
-    End If
-    
-    If Me.Width < 10500 Then
-        topIconWidth = 600
-    End If
-    
-    If Me.Width >= 10500 And Me.Width < 12000 Then 'Me.Height / ratio ' maintain the aspect ratio
-        topIconWidth = 730
-    End If
-            
-    If Me.Width >= 12000 And Me.Width < 13500 Then 'Me.Height / ratio ' maintain the aspect ratio
-        topIconWidth = 834
-    End If
-            
-    If Me.Width >= 13500 And Me.Width < 15000 Then 'Me.Height / ratio ' maintain the aspect ratio
-        topIconWidth = 940
-    End If
-            
-    If Me.Width >= 15000 Then 'Me.Height / ratio ' maintain the aspect ratio
-        topIconWidth = 1010
-    End If
-    
+    On Error GoTo loadHigherResPrefsImages_Error
+
+    If WindowState = vbMinimized Then Exit Sub
+
     If planetPrefs.mnuDark.Checked = True Then
-        Call setIconImagesDark
+        Call setPrefsIconImagesDark
     Else
-        Call setIconImagesLight
+        Call setPrefsIconImagesLight
     End If
     
    On Error GoTo 0
    Exit Sub
 
-loadHigherResImages_Error:
+loadHigherResPrefsImages_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResImages of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure loadHigherResPrefsImages of Form planetPrefs"
 End Sub
 '---------------------------------------------------------------------------------------
 ' Procedure : positionTimer_Timer
@@ -4428,88 +4399,78 @@ End Sub
 
 
 '---------------------------------------------------------------------------------------
-' Procedure : setIconImagesDark
+' Procedure : setPrefsIconImagesDark
 ' Author    : beededea
 ' Date      : 22/06/2023
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub setIconImagesDark()
-    Dim resourcePath As String: resourcePath = vbNullString
-    
-    On Error GoTo setIconImagesDark_Error
-    
-    resourcePath = App.Path & "\resources\images"
+Private Sub setPrefsIconImagesDark()
+    On Error GoTo setPrefsIconImagesDark_Error
 
-    If fFExists(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-dark-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg") Then planetPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-dark-" & topIconWidth & ".jpg")
+    Set imgGeneral.Picture = Cairo.ImageList("general-icon-dark").Picture
+    Set imgConfig.Picture = Cairo.ImageList("config-icon-dark").Picture
+    Set imgFonts.Picture = Cairo.ImageList("font-icon-dark").Picture
+    Set imgSounds.Picture = Cairo.ImageList("sounds-icon-dark").Picture
+    Set imgPosition.Picture = Cairo.ImageList("position-icon-dark").Picture
+    Set imgDevelopment.Picture = Cairo.ImageList("development-icon-dark").Picture
+    Set imgWindow.Picture = Cairo.ImageList("windows-icon-dark").Picture
+    Set imgAbout.Picture = Cairo.ImageList("about-icon-dark").Picture
+'
+    Set imgGeneralClicked.Picture = Cairo.ImageList("general-icon-dark-clicked").Picture
+    Set imgConfigClicked.Picture = Cairo.ImageList("config-icon-dark-clicked").Picture
+    Set imgFontsClicked.Picture = Cairo.ImageList("font-icon-dark-clicked").Picture
+    Set imgSoundsClicked.Picture = Cairo.ImageList("sounds-icon-dark-clicked").Picture
+    Set imgPositionClicked.Picture = Cairo.ImageList("position-icon-dark-clicked").Picture
+    Set imgDevelopmentClicked.Picture = Cairo.ImageList("development-icon-dark-clicked").Picture
+    Set imgWindowClicked.Picture = Cairo.ImageList("windows-icon-dark-clicked").Picture
+    Set imgAboutClicked.Picture = Cairo.ImageList("about-icon-dark-clicked").Picture
     
-    ' I may yet create clicked versions of all the icons but not now!
-    If fFExists(resourcePath & "\config-icon-dark-600-clicked.jpg") Then planetPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\general-icon-dark-600-clicked.jpg") Then planetPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\position-icon-dark-600-clicked.jpg") Then planetPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\font-icon-dark-600-clicked.jpg") Then planetPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\development-icon-dark-600-clicked.jpg") Then planetPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\sounds-icon-dark-600-clicked.jpg") Then planetPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\windows-icon-dark-600-clicked.jpg") Then planetPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-dark-600-clicked.jpg")
-    If fFExists(resourcePath & "\about-icon-dark-600-clicked.jpg") Then planetPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-dark-600-clicked.jpg")
-
    On Error GoTo 0
    Exit Sub
 
-setIconImagesDark_Error:
+setPrefsIconImagesDark_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesDark of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsIconImagesDark of Form planetPrefs"
 
 End Sub
 
 
 '---------------------------------------------------------------------------------------
-' Procedure : setIconImagesLight
+' Procedure : setPrefsIconImagesLight
 ' Author    : beededea
 ' Date      : 22/06/2023
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Private Sub setIconImagesLight()
-    
-    Dim resourcePath As String: resourcePath = vbNullString
-    
-    On Error GoTo setIconImagesLight_Error
-    
-    resourcePath = App.Path & "\resources\images"
-    
-    If fFExists(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgConfig.Picture = LoadPicture(resourcePath & "\config-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgGeneral.Picture = LoadPicture(resourcePath & "\general-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgPosition.Picture = LoadPicture(resourcePath & "\position-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgFonts.Picture = LoadPicture(resourcePath & "\font-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgDevelopment.Picture = LoadPicture(resourcePath & "\development-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgSounds.Picture = LoadPicture(resourcePath & "\sounds-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgWindow.Picture = LoadPicture(resourcePath & "\windows-icon-light-" & topIconWidth & ".jpg")
-    If fFExists(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg") Then planetPrefs.imgAbout.Picture = LoadPicture(resourcePath & "\about-icon-light-" & topIconWidth & ".jpg")
-    
-    ' I may yet create clicked versions of all the icons but not now!
-    If fFExists(resourcePath & "\config-icon-light-600-clicked.jpg") Then planetPrefs.imgConfigClicked.Picture = LoadPicture(resourcePath & "\config-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\general-icon-light-600-clicked.jpg") Then planetPrefs.imgGeneralClicked.Picture = LoadPicture(resourcePath & "\general-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\position-icon-light-600-clicked.jpg") Then planetPrefs.imgPositionClicked.Picture = LoadPicture(resourcePath & "\position-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\font-icon-light-600-clicked.jpg") Then planetPrefs.imgFontsClicked.Picture = LoadPicture(resourcePath & "\font-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\development-icon-light-600-clicked.jpg") Then planetPrefs.imgDevelopmentClicked.Picture = LoadPicture(resourcePath & "\development-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\sounds-icon-light-600-clicked.jpg") Then planetPrefs.imgSoundsClicked.Picture = LoadPicture(resourcePath & "\sounds-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\windows-icon-light-600-clicked.jpg") Then planetPrefs.imgWindowClicked.Picture = LoadPicture(resourcePath & "\windows-icon-light-600-clicked.jpg")
-    If fFExists(resourcePath & "\about-icon-light-600-clicked.jpg") Then planetPrefs.imgAboutClicked.Picture = LoadPicture(resourcePath & "\about-icon-light-600-clicked.jpg")
+Private Sub setPrefsIconImagesLight()
 
+    On Error GoTo setPrefsIconImagesLight_Error
+
+    Set imgGeneral.Picture = Cairo.ImageList("general-icon-light").Picture
+    Set imgConfig.Picture = Cairo.ImageList("config-icon-light").Picture
+    Set imgFonts.Picture = Cairo.ImageList("font-icon-light").Picture
+    Set imgSounds.Picture = Cairo.ImageList("sounds-icon-light").Picture
+    Set imgPosition.Picture = Cairo.ImageList("position-icon-light").Picture
+    Set imgDevelopment.Picture = Cairo.ImageList("development-icon-light").Picture
+    Set imgWindow.Picture = Cairo.ImageList("windows-icon-light").Picture
+    Set imgAbout.Picture = Cairo.ImageList("about-icon-light").Picture
+'
+    Set imgGeneralClicked.Picture = Cairo.ImageList("general-icon-light-clicked").Picture
+    Set imgConfigClicked.Picture = Cairo.ImageList("config-icon-light-clicked").Picture
+    Set imgFontsClicked.Picture = Cairo.ImageList("font-icon-light-clicked").Picture
+    Set imgSoundsClicked.Picture = Cairo.ImageList("sounds-icon-light-clicked").Picture
+    Set imgPositionClicked.Picture = Cairo.ImageList("position-icon-light-clicked").Picture
+    Set imgDevelopmentClicked.Picture = Cairo.ImageList("development-icon-light-clicked").Picture
+    Set imgWindowClicked.Picture = Cairo.ImageList("windows-icon-light-clicked").Picture
+    Set imgAboutClicked.Picture = Cairo.ImageList("about-icon-light-clicked").Picture
+    
    On Error GoTo 0
    Exit Sub
 
-setIconImagesLight_Error:
+setPrefsIconImagesLight_Error:
 
-    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setIconImagesLight of Form planetPrefs"
+    MsgBox "Error " & Err.Number & " (" & Err.Description & ") in procedure setPrefsIconImagesLight of Form planetPrefs"
 
 End Sub
 
