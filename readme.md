@@ -1,5 +1,5 @@
 # Earth-Widget-VB6
-The Steampunk Earth Desktop Widget, written in VB6 for Windows and ReactOS. Created for XP, Vista, Win7, 8, 10/11+, ReactOS as well as Linux or the Apple Mac's OS/X with Wine. This Earth Desktop Widget is an attractive and steamy VB6 widget for your desktop. This VB6 widget provides a simple moveable marble globe complete with rings
+The Steampunk Earth Desktop Widget, written in VB6 for Windows XP, ReactOS Vista, 7, 8 and 10/11+. Also tested and running well on Linux and Mac os/X using Wine.  This Earth Desktop Widget is an attractive and steamy VB6 widget for your desktop. This VB6 widget provides a simple moveable marble globe complete with rings
 
 ![earth](https://github.com/yereverluvinunclebert/Earth-VB6-Widget/assets/2788342/ef628ebe-30a8-4806-b050-77d2ea5e8ea9)
 
@@ -158,15 +158,25 @@ If you are just a casual user of desktop programs then simply download the SETUP
  The above will be created automatically by the compiled program when run for the 
  first time.
  
- Uses just one OCX control extracted from Krools mega pack (slider). This is part 
- of Krools replacement for the whole of Microsoft Windows Common Controls found 
- in mscomctl.ocx. The slider control OCX file is shipped with this package.
- 
- * CCRSlider.ocx
- 
- This OCX will reside in the program folder. The program reference to this OCX is 
- contained within the supplied resource file Earth.RES. It is 
- compiled into the binary.
+o Krool's replacement for the Microsoft Windows Common Controls found in
+mscomctl.ocx (slider) are replicated by the addition of one
+dedicated OCX file that are shipped with this package.
+
+During development only, this must be copied to C:\windows\syswow64 and should be registered.
+
+- CCRSlider.ocx
+
+Register this using regsvr32, ie. in a CMD window with administrator privileges.
+	
+	c:                          ! set device to boot drive with Windows
+	cd \windows\syswow64s	    ! change default folder to syswow64
+	regsvr32 CCRSlider.ocx	! register the ocx
+
+This will allow the custom controls to be accessible to the VB6 IDE
+at design time and the sliders will function as intended (if this ocx is
+not registered correctly then the relevant controls will be replaced by picture boxes).
+
+The above is only for development, for ordinary users, during runtime there is no need to do the above. The OCX will reside in the program folder. The program reference to this OCX is contained within the supplied resource file, earth.RES. The reference to this file is already compiled into the binary. As long as the OCX is in the same folder as the binary the program will run without the need to register the OCX manually.
  
  * OLEGuids.tlb
  
